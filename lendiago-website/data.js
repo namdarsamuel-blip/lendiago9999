@@ -35,7 +35,7 @@ const products = [
       ['Build Your Business Credit','Making on-time payments demonstrates financial responsibility and helps build a strong credit profile for your business, unlocking even better financing opportunities in the future.']
     ],
     summary:[
-      ['Funding Amount','$100,000 - $50,000,000'],['Time to Funding','2-4 weeks'],['Repayment','Fixed monthly payments'],
+      ['Funding Amount','$100,000 - $50,000,000'],['Time to Funding','1-2 weeks'],['Repayment','Fixed monthly payments'],
       ['Credit Requirement','680+ FICO'],['Interest Rate','11% - 19%'],['Best For','Large planned investments & expansions']
     ]
   },
@@ -52,7 +52,7 @@ const products = [
       ['High Approval Rates','Our flexible criteria mean more businesses get approved, even those who have been turned down by traditional banks.']
     ],
     summary:[
-      ['Funding Amount','$2,000 - $50,000,000'],['Time to Funding','24-48 hours'],['Repayment','Percentage of daily sales'],
+      ['Funding Amount','$2,000 - $50,000,000'],['Time to Funding','As fast as same day'],['Repayment','Percentage of daily sales'],
       ['Credit Requirement','No minimum FICO'],['Factor Rate','1.3-1.5x factor'],['Best For','Quick cash & high card-sales businesses']
     ]
   },
@@ -69,7 +69,7 @@ const products = [
       ['Flexible Revolving Credit','Access funds repeatedly as you repay, with your credit limit resetting for continuous use.']
     ],
     summary:[
-      ['Funding Amount','Varies by lender'],['Time to Funding','2-4 weeks'],['Repayment','Flexible revolving credit'],
+      ['Funding Amount','Varies by lender'],['Time to Funding','1-2 weeks'],['Repayment','Flexible revolving credit'],
       ['Credit Requirement','680+ FICO'],['Interest Rate','6% - 10%'],['Best For','Cash flow & operational expenses']
     ]
   },
@@ -85,7 +85,7 @@ const products = [
       ['Build Strong Business Credit','Using and paying your new business credit cards responsibly establishes a powerful credit profile for your company, separate from your personal credit, unlocking even better funding in the future.']
     ],
     summary:[
-      ['Funding Amount','Up to $150,000'],['Time to Funding','2-3 weeks'],['Repayment','Flexible, revolving credit'],
+      ['Funding Amount','Up to $150,000'],['Time to Funding','2-4 weeks'],['Repayment','Flexible, revolving credit'],
       ['Credit Requirement','720+ FICO ideal'],['Interest Rate','0% for 12-18 months'],['Best For','Startups & strong personal credit']
     ]
   },
@@ -101,7 +101,7 @@ const products = [
       ['Government-Backed Security','The SBA guarantees a portion of the loan, which reduces risk for lenders and helps more businesses get approved for the high-value financing they need to thrive.']
     ],
     summary:[
-      ['Funding Amount','$100,000 - $50,000,000'],['Time to Funding','2-8 weeks'],['Repayment','Long-term monthly payments'],
+      ['Funding Amount','$100,000 - $50,000,000'],['Time to Funding','30-90 days'],['Repayment','Long-term monthly payments'],
       ['Credit Requirement','650+ FICO'],['Interest Rate','Prime + 2% (~8.75%)'],['Best For','Real estate, acquisitions & refinance']
     ]
   },
@@ -117,7 +117,7 @@ const products = [
       ['Speed and Flexibility','Our Hard Money and Bridge Loans provide the speed you need to secure properties in competitive markets, with approvals based primarily on asset value.']
     ],
     summary:[
-      ['Funding Amount','$250,000 - $500,000,000'],['Time to Funding','< 2 weeks'],['Repayment','Varies by strategy'],
+      ['Funding Amount','$250,000 - $500,000,000'],['Time to Funding','2-6 weeks'],['Repayment','Varies by strategy'],
       ['Credit Requirement','550+ FICO'],['Interest Rate','5% - 11%'],['Best For','Real estate investors & developers']
     ]
   },
@@ -133,7 +133,7 @@ const products = [
       ['No Collateral Needed','These are unsecured loans, meaning you don\u2019t have to put up your home or other assets as collateral.']
     ],
     summary:[
-      ['Funding Amount','$1,000 - $100,000'],['Time to Funding','1-3 business days'],['Repayment','Fixed monthly payments'],
+      ['Funding Amount','$1,000 - $100,000'],['Time to Funding','1-7 business days'],['Repayment','Fixed monthly payments'],
       ['Credit Requirement','640+ FICO'],['Interest Rate','6% - 36%'],['Best For','Debt consolidation & personal expenses']
     ]
   },
@@ -160,6 +160,7 @@ const industries = [
     icon:'wrench', title:'Construction', slug:'construction',
     description:'Power your operations with flexible funding for both materials and payroll needs.',
     image:'https://images.unsplash.com/photo-1626885930974-4b69aa21bbf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image2:'https://images.unsplash.com/photo-1503387762-592deb58ef4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     headline:'Building Your Future with Solid Financial Foundations',
     introduction:'The construction industry is the backbone of our infrastructure, but it comes with unique financial hurdles. From waiting on invoices to investing in heavy machinery, managing cash flow is critical. We provide robust funding solutions designed to keep your projects on schedule and your business growing.',
     points:[
@@ -171,12 +172,13 @@ const industries = [
       ['Residential Developer Expansion','A local developer needed $250k to secure materials for a new 10-unit project while waiting for draws on an existing project.','We secured a $250,000 Business Line of Credit in 7 business days.','Project started on time, avoiding $15k in delay penalties.'],
       ['Equipment Fleet Upgrade','A paving company needed to replace two aging rollers to keep up with a new municipal contract.','Provided $180,000 in Business Term Loan with a 60-month term.','Increased efficiency by 30% and reduced maintenance costs.']
     ],
-    expectations:[['Typical Funding Amount','$50,000 - $2,000,000'],['Time to Funding','7 - 14 Business Days'],['Common Use','Equipment, Materials, Payroll']]
+    expectations:[['Typical Funding Amount','$50,000 - $2,000,000'],['Time to Funding','As fast as same day'],['Common Use','Equipment, Materials, Payroll']]
   },
   {
     icon:'utensils', title:'Food & Beverage', slug:'food-beverage',
     description:'Keep your kitchen running with capital that\u2019s crafted for restaurants, bars, and cafes.',
     image:'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image2:'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     headline:'Capital to Keep Your Kitchen Sizzling',
     introduction:'The food and beverage industry operates on thin margins and high turnover. Whether you\u2019re renovating your dining room, launching a new menu, or just need to cover payroll during a slow season, having access to quick capital is essential. We offer funding solutions that are as fast-paced as your business.',
     points:[
@@ -185,12 +187,13 @@ const industries = [
       ['Kitchen Upgrades','Upgrade your kitchen with new ovens, refrigerators, or point-of-sale systems using our specialized Business Term Loan program, featuring predictable monthly payments.']
     ],
     stories:[['Restaurant Renovation','A popular bistro needed $75k for a patio expansion before the summer season.','Secured a $75,000 Merchant Cash Advance based on credit card sales.','Seating capacity increased by 40%, leading to record summer revenue.']],
-    expectations:[['Typical Funding Amount','$10,000 - $500,000'],['Time to Funding','24 Hours - 7 Business Days'],['Common Use','Inventory, Renovation, Marketing']]
+    expectations:[['Typical Funding Amount','$10,000 - $500,000'],['Time to Funding','As fast as same day'],['Common Use','Inventory, Renovation, Marketing']]
   },
   {
     icon:'store', title:'Retail', slug:'retail',
     description:'Stock up on inventory and scale with funding built for retail and e-commerce stores.',
     image:'https://images.unsplash.com/photo-1526152505827-d2f3b5b4a52a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image2:'https://images.unsplash.com/photo-1483985988355-763728e1935b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     headline:'Funding to Keep Your Shelves Stocked',
     introduction:'For retail and e-commerce businesses, inventory is king. Having the right products at the right time is essential for success. We provide fast and flexible funding to help you manage inventory, run marketing campaigns, and grow your retail business.',
     points:[
@@ -199,12 +202,13 @@ const industries = [
       ['Digital Growth','Invest in digital marketing, website upgrades, and other online growth strategies with a fast working capital loan to boost your e-commerce sales.']
     ],
     stories:[['Holiday Inventory Prep','A boutique clothing store needed $120k in October to stock up for the Q4 rush.','Provided a $120,000 Business Line of Credit with flexible repayment.','Sold out of key lines by mid-December, maximizing profit margins.']],
-    expectations:[['Typical Funding Amount','$25,000 - $1,000,000'],['Time to Funding','1 - 7 Business Days'],['Common Use','Inventory, Marketing, Staffing']]
+    expectations:[['Typical Funding Amount','$25,000 - $1,000,000'],['Time to Funding','As fast as same day'],['Common Use','Inventory, Marketing, Staffing']]
   },
   {
     icon:'truck', title:'Transportation', slug:'transportation',
     description:'Keep your fleet moving with financing for vehicle acquisition and routine maintenance.',
     image:'https://images.unsplash.com/photo-1501700493788-fa1a4fc9fe62?q=80&w=1080',
+    image2:'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     headline:'Financing to Keep Your Business on the Move',
     introduction:'In the transportation and logistics industry, your vehicles are your business. Keeping your fleet updated, maintained, and on the road is essential for profitability. We offer straightforward financing to help you manage and grow your transportation company.',
     points:[
@@ -213,12 +217,13 @@ const industries = [
       ['Operational Cash Flow','Get quick funding through a Merchant Cash Advance to cover fluctuating operational expenses like fuel, insurance, and driver pay.']
     ],
     stories:[['Fleet Expansion','A logistics company needed to add 3 new box trucks to fulfill a new contract.','Secured $210,000 in Business Term Loan.','Contract fulfilled successfully, leading to a 25% increase in annual revenue.']],
-    expectations:[['Typical Funding Amount','$50,000 - $5,000,000'],['Time to Funding','3 - 7 Business Days'],['Common Use','Vehicle Purchase, Fuel, Repairs']]
+    expectations:[['Typical Funding Amount','$50,000 - $5,000,000'],['Time to Funding','As fast as same day'],['Common Use','Vehicle Purchase, Fuel, Repairs']]
   },
   {
     icon:'heart', title:'Healthcare', slug:'healthcare',
     description:'Support patient care with financing that is designed for modern medical practices.',
     image:'https://images.unsplash.com/photo-1516841273335-e39b37888115?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image2:'https://images.unsplash.com/photo-1538108149393-fbbd81895907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     headline:'Financing for Health and Wellness',
     introduction:'Private practices in the healthcare sector face a unique set of financial challenges, from managing insurance reimbursement cycles to investing in advanced medical technology. We provide specialized financing to help you focus on what matters most: patient care.',
     points:[
@@ -227,12 +232,13 @@ const industries = [
       ['Practice Expansion','Finance a renovation, office expansion, or new location with a predictable Business Line of Credit for smaller projects or a larger SBA Loan for major investments.']
     ],
     stories:[['Medical Practice Modernization','A dental clinic needed $150k for new digital X-ray equipment.','Provided $150,000 in Business Term Loan.','Improved patient throughput by 20% and enhanced diagnostic accuracy.']],
-    expectations:[['Typical Funding Amount','$100,000 - $3,000,000'],['Time to Funding','7 - 14 Business Days'],['Common Use','Equipment, Expansion, Working Capital']]
+    expectations:[['Typical Funding Amount','$100,000 - $3,000,000'],['Time to Funding','As fast as same day'],['Common Use','Equipment, Expansion, Working Capital']]
   },
   {
     icon:'bell', title:'Hospitality & Services', slug:'hospitality-services',
     description:'Fuel your service business with tailored financing for hotels, salons, and more.',
     image:'https://images.unsplash.com/photo-1605497788044-5a32c7078486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image2:'https://images.unsplash.com/photo-1564501049412-61c2a3083791?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     headline:'Funding to Elevate Your Guest Experience',
     introduction:'In the hospitality and services industry, customer experience is everything. From hotels and motels to salons and spas, maintaining a high standard requires continuous investment. We offer flexible funding to help you renovate, expand, and deliver exceptional service.',
     points:[
@@ -241,12 +247,13 @@ const industries = [
       ['Service Excellence','Finance new booking systems, POS software, or service equipment through our Business Term Loan options to streamline operations and improve guest satisfaction.']
     ],
     stories:[['Boutique Hotel Refresh','A 20-room hotel needed $200k for lobby and room soft-goods refresh.','Secured a $200,000 Business Line of Credit.','Average daily rate (ADR) increased by 15% post-renovation.']],
-    expectations:[['Typical Funding Amount','$50,000 - $2,500,000'],['Time to Funding','7 - 14 Business Days'],['Common Use','Renovation, Marketing, Equipment']]
+    expectations:[['Typical Funding Amount','$50,000 - $2,500,000'],['Time to Funding','As fast as same day'],['Common Use','Renovation, Marketing, Equipment']]
   },
   {
     icon:'factory', title:'Manufacturing', slug:'manufacturing',
     description:'Invest in equipment and inventory to scale your overall production capabilities.',
     image:'https://images.unsplash.com/photo-1516216628859-9bccecab13ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image2:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     headline:'Powering Production with Smart Capital',
     introduction:'For manufacturing businesses, growth is tied to production capacity, efficiency, and supply chain management. Investing in new equipment and maintaining inventory levels is crucial. We provide financing solutions that help you scale production and meet demand.',
     points:[
@@ -255,12 +262,13 @@ const industries = [
       ['Facility Expansion','Take on large orders, expand your facility, or invest in new technology with the help of a long-term, low-rate SBA Loan.']
     ],
     stories:[['Production Line Automation','A parts manufacturer needed $450k for a new automated assembly line.','Provided $450,000 in Business Term Loan.','Output tripled while labor costs remained stable.']],
-    expectations:[['Typical Funding Amount','$250,000 - $10,000,000'],['Time to Funding','7 - 14 Business Days'],['Common Use','Machinery, Raw Materials, Expansion']]
+    expectations:[['Typical Funding Amount','$250,000 - $10,000,000'],['Time to Funding','As fast as same day'],['Common Use','Machinery, Raw Materials, Expansion']]
   },
   {
     icon:'home', title:'Real Estate', slug:'real-estate',
     description:'Secure funding for property investment, renovations, and new development.',
     image:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image2:'https://images.unsplash.com/photo-1523217582562-09d0def993a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     headline:'Capital for Your Next Property Venture',
     introduction:'The real estate market moves fast, and opportunities don\u2019t wait. Whether you\u2019re a developer, investor, or agent, having access to reliable funding is key to closing deals and maximizing returns. We offer a variety of financing options for your real estate business needs.',
     points:[
@@ -269,12 +277,13 @@ const industries = [
       ['Brokerage Growth','Invest in marketing, technology, and hiring top agents to grow your real estate brokerage with our accessible working capital solutions.']
     ],
     stories:[['Fix-and-Flip Funding','An investor needed $300k to purchase and renovate a distressed property.','Provided a $300,000 Real Estate Loan.','Property sold in 4 months with a $85k net profit.']],
-    expectations:[['Typical Funding Amount','$100,000 - $5,000,000'],['Time to Funding','7 - 14 Business Days'],['Common Use','Acquisition, Renovation, Bridge']]
+    expectations:[['Typical Funding Amount','$100,000 - $5,000,000'],['Time to Funding','As fast as same day'],['Common Use','Acquisition, Renovation, Bridge']]
   },
   {
     icon:'calendar', title:'Seasonal Business', slug:'seasonal-business',
     description:'Stay ahead of seasonal shifts with reliable financial support during your busy periods.',
     image:'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1080',
+    image2:'https://images.unsplash.com/photo-1483356283937-f5e1f23d22e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     headline:'Capital for Every Season of Your Business',
     introduction:'A seasonal business faces the unique challenge of generating most of its revenue in a short period. We provide funding solutions that help you prepare for the busy season and manage cash flow during the off-season, ensuring year-round stability.',
     points:[
@@ -283,12 +292,13 @@ const industries = [
       ['Financial Safety Net','Utilize Credit Stacking to gain access to multiple lines of credit, providing a financial safety net for unexpected expenses or opportunities year-round.']
     ],
     stories:[['Ski Resort Prep','A mountain resort needed $150k for equipment maintenance and staffing before opening.','Provided a $150,000 Merchant Cash Advance.','Fully staffed and operational for opening day, leading to a record season.']],
-    expectations:[['Typical Funding Amount','$25,000 - $500,000'],['Time to Funding','24 Hours - 7 Business Days'],['Common Use','Inventory, Staffing, Maintenance']]
+    expectations:[['Typical Funding Amount','$25,000 - $500,000'],['Time to Funding','As fast as same day'],['Common Use','Inventory, Staffing, Maintenance']]
   },
   {
     icon:'briefcase', title:'Other Industries', slug:'other',
     description:'We serve all types of businesses. Find out how we can help yours.',
     image:'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    image2:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     headline:'Custom Funding Solutions for Your Unique Business',
     introduction:'Don\u2019t see your industry listed? Don\u2019t worry. We provide flexible financing for a wide variety of businesses across virtually every sector. Our experts can tailor a funding solution to meet your specific needs and challenges.',
     points:[
@@ -298,7 +308,7 @@ const industries = [
       ['Credit Building','Take advantage of Credit Stacking to build your business credit and secure multiple lines of funding for maximum flexibility.']
     ],
     stories:[['Professional Services Growth','A marketing agency needed $50k to hire two new account managers.','Provided a $50,000 Business Line of Credit.','Onboarded 5 new clients within 3 months of hiring.']],
-    expectations:[['Typical Funding Amount','$10,000 - $1,000,000+'],['Time to Funding','24 Hours - 7 Business Days'],['Common Use','Working Capital, Hiring, Marketing']]
+    expectations:[['Typical Funding Amount','$10,000 - $1,000,000+'],['Time to Funding','As fast as same day'],['Common Use','Working Capital, Hiring, Marketing']]
   }
 ];
 

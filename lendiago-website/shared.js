@@ -46,7 +46,7 @@
       ${navLink('contact.html','Contact','contact')}
     </nav>
     <div class="flex items-center gap-2 xl:gap-4">
-      <a href="apply.html" class="hidden lg:inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-6 py-2.5 text-sm font-semibold whitespace-nowrap transition">Apply Now</a>
+      <a href="https://form.jotform.com/261271610738051" target="_blank" rel="noopener" class="hidden lg:inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-6 py-2.5 text-sm font-semibold whitespace-nowrap transition">Apply Now</a>
       <button id="mobileMenuBtn" class="lg:hidden p-2" aria-label="Open menu">
         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
       </button>
@@ -90,7 +90,7 @@
       <a class="py-3 text-lg font-medium" href="partners.html">Partner Program</a>
       <a class="py-3 text-lg font-medium" href="faq.html">FAQ</a>
       <a class="py-3 text-lg font-medium" href="contact.html">Contact</a>
-      <a href="apply.html" class="mt-6 inline-flex items-center justify-center bg-primary text-primary-foreground rounded-lg px-6 py-3 text-base font-semibold">Apply Now</a>
+      <a href="https://form.jotform.com/261271610738051" target="_blank" rel="noopener" class="mt-6 inline-flex items-center justify-center bg-primary text-primary-foreground rounded-lg px-6 py-3 text-base font-semibold">Apply Now</a>
     </nav>
   </div>
 </div>

@@ -21,38 +21,156 @@
   /* Financing Solutions listing */
   window.LendiagoRenderSolutionsListing = function(){
     document.title = 'Financing Solutions, Lendiago';
+    const DUO = {
+      'business-term-loan':'<rect x="3" y="6" width="18" height="13" rx="2" fill="hsl(var(--accent))"/><rect x="3" y="6" width="18" height="13" rx="2" stroke="hsl(var(--primary))" stroke-width="1.5" fill="none"/><path d="M3 10h18" stroke="hsl(var(--primary))" stroke-width="1.5"/><circle cx="8" cy="14.5" r="1.2" fill="hsl(var(--primary))"/>',
+      'merchant-cash-advance':'<circle cx="12" cy="12" r="9" fill="hsl(var(--accent))"/><circle cx="12" cy="12" r="9" stroke="hsl(var(--primary))" stroke-width="1.5" fill="none"/><path d="M12 7v10M9 9.5h4a2 2 0 0 1 0 4h-2.5a2 2 0 0 0 0 4H14" stroke="hsl(var(--primary))" stroke-width="1.6" stroke-linecap="round" fill="none"/>',
+      'business-line-of-credit':'<rect x="3" y="5" width="18" height="14" rx="2" fill="hsl(var(--accent))" fill-opacity=".5"/><rect x="3" y="5" width="18" height="14" rx="2" stroke="hsl(var(--primary))" stroke-width="1.5" fill="none"/><path d="M3 10h18" stroke="hsl(var(--primary))" stroke-width="1.5"/><path d="M7 14h4" stroke="hsl(var(--primary))" stroke-width="1.7" stroke-linecap="round"/>',
+      'credit-stacking':'<rect x="4" y="14" width="16" height="6" rx="1.5" fill="hsl(var(--accent))"/><rect x="4" y="14" width="16" height="6" rx="1.5" stroke="hsl(var(--primary))" stroke-width="1.5" fill="none"/><rect x="4" y="9" width="16" height="4" rx="1.5" fill="hsl(var(--accent))" fill-opacity=".55"/><rect x="4" y="9" width="16" height="4" rx="1.5" stroke="hsl(var(--primary))" stroke-width="1.5" fill="none"/><rect x="4" y="4" width="16" height="4" rx="1.5" stroke="hsl(var(--primary))" stroke-width="1.5" fill="none"/>',
+      'sba-loan':'<path d="M3 10l9-6 9 6v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9z" fill="hsl(var(--accent))" stroke="hsl(var(--primary))" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 21v-7h6v7" stroke="hsl(var(--primary))" stroke-width="1.5" fill="none"/>',
+      'real-estate-loan':'<rect x="3" y="11" width="7" height="10" fill="hsl(var(--accent))" fill-opacity=".5" stroke="hsl(var(--primary))" stroke-width="1.5"/><rect x="11" y="6" width="10" height="15" fill="hsl(var(--accent))" stroke="hsl(var(--primary))" stroke-width="1.5"/><path d="M5 15h3M5 18h3M14 10h4M14 13h4M14 16h4" stroke="hsl(var(--primary))" stroke-width="1.4" stroke-linecap="round"/>',
+      'credit-repair':'<circle cx="12" cy="12" r="9" fill="hsl(var(--accent))"/><circle cx="12" cy="12" r="9" stroke="hsl(var(--primary))" stroke-width="1.5" fill="none"/><path d="M8 12.5l3 3 5-6" stroke="hsl(var(--primary))" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
+      'personal-term-loans':'<circle cx="12" cy="8.5" r="4" fill="hsl(var(--accent))"/><circle cx="12" cy="8.5" r="4" stroke="hsl(var(--primary))" stroke-width="1.5" fill="none"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" stroke="hsl(var(--primary))" stroke-width="1.5" fill="none" stroke-linecap="round"/>'
+    };
+    const tags = {
+      'business-term-loan':'Predictable payments',
+      'merchant-cash-advance':'Fastest funding',
+      'business-line-of-credit':'Revolving credit',
+      'credit-stacking':'Credit-based',
+      'sba-loan':'Lowest rates',
+      'real-estate-loan':'Asset-backed',
+      'personal-term-loans':'Personal use',
+      'credit-repair':'Build credit'
+    };
     const cards = D.products.map((p,i) => `
-      <a href="${p.slug}.html" class="reveal group flex flex-col py-8 border-t border-border/60 hover:border-accent transition-colors" data-delay="${i*60}">
-        <div class="flex items-center gap-3 mb-5">
-          <span class="block h-1.5 w-1.5 rounded-full bg-accent"></span>
-          <span class="text-[10px] font-mono uppercase tracking-[0.28em] text-muted-foreground">${p.badge || 'Funding Product'}</span>
+      <a href="${p.slug}.html" class="reveal group relative flex flex-col p-8 md:p-10 border border-border/60 bg-white hover:bg-primary transition-all duration-300" data-delay="${i*50}">
+        <div class="flex items-start justify-between mb-12 md:mb-14">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent">${tags[p.slug] || 'Funding'}</p>
+          <span class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-border/70 text-primary group-hover:border-accent group-hover:bg-accent group-hover:text-primary transition-all">
+            <svg class="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
         </div>
-        <h3 class="text-2xl md:text-3xl font-bold font-headline text-primary mb-4 leading-tight group-hover:text-accent transition-colors">${p.title}</h3>
-        <p class="text-muted-foreground leading-relaxed mb-6 flex-1">${p.description}</p>
-        <span class="inline-flex items-center text-sm font-semibold text-primary group-hover:text-accent transition-colors">Read more
-          <svg class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </span>
+        <h3 class="text-2xl md:text-3xl font-bold font-headline text-primary group-hover:text-white mb-4 leading-[1.05] tracking-tight transition-colors">${p.title}</h3>
+        <p class="text-muted-foreground group-hover:text-white/75 leading-relaxed transition-colors mb-8">${p.description}</p>
+        <div class="mt-auto pt-6 border-t border-border/60 group-hover:border-white/20 transition-colors space-y-2.5">
+          ${(p.summary||[]).slice(0,3).map(([k,v]) => `
+            <div class="flex items-baseline justify-between gap-3 text-[13px]">
+              <span class="text-muted-foreground group-hover:text-white/60 transition-colors">${k}</span>
+              <span class="font-semibold text-primary group-hover:text-white text-right transition-colors">${v}</span>
+            </div>`).join('')}
+        </div>
       </a>`).join('');
-    document.getElementById('page-content').innerHTML =
-      pageHero({eyebrow:'Financing Solutions', title:'The right capital for every need', subtitle:'Eight tailored products covering working capital, equipment, real estate, and credit-building. Apply once, we match you to the best option.'}) +
-      `<section class="py-16 md:py-24 bg-background"><div class="container mx-auto px-4 md:px-6"><div class="grid md:grid-cols-2 gap-x-12">${cards}</div></div></section>` +
-      genericCTA('Not sure which product is right for your business?');
+
+    document.getElementById('page-content').innerHTML = `
+<section class="relative w-full overflow-hidden bg-background pt-16 pb-20 md:pt-24 md:pb-28">
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none -z-10">
+    <div class="absolute inset-0" style="background-image: linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px); background-size:40px 40px;"></div>
+  </div>
+  <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent pointer-events-none -z-10"></div>
+
+  <div class="container mx-auto px-4 md:px-6">
+
+    <div class="max-w-3xl mb-14 md:mb-20 reveal">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="block h-px w-12 bg-accent"></span>
+        <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Financing Solutions</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-primary leading-[1.05] font-headline mb-6">
+        The right capital for <span class="text-accent italic">every need.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+        Eight funding products covering working capital, equipment, real estate, and credit. Apply once, and we match you to the option that actually fits.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-0 -mb-px">
+      ${cards}
+    </div>
+
+    <div class="mt-20 md:mt-24 grid md:grid-cols-12 gap-10 md:gap-12 items-center">
+      <div class="md:col-span-7 reveal">
+        <div class="flex items-center gap-4 mb-5">
+          <span class="block h-px w-10 bg-accent"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">How we match</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold font-headline text-primary leading-[1.1] tracking-tight">Not sure which product fits? <span class="text-muted-foreground">Skip the guesswork.</span></h2>
+      </div>
+      <div class="md:col-span-5 reveal" data-delay="120">
+        <p class="text-lg text-muted-foreground leading-relaxed mb-6">Apply once and a specialist reviews your business, then matches you to the right product, terms, and timeline. No shopping eight forms.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://form.jotform.com/261271610738051" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-accent hover:bg-accent/90 text-primary font-bold px-8 py-4 rounded-full shadow-xl shadow-accent/20 transition-all hover:scale-105">Pre-qualify now</a>
+          <a href="contact.html" class="inline-flex items-center justify-center text-primary font-bold px-2 py-4 hover:text-accent transition-colors">Talk to a specialist
+            <svg class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>`;
   };
 
   /* Industries listing */
   window.LendiagoRenderIndustriesListing = function(){
     document.title = 'Industries We Serve, Lendiago';
-    const cards = D.industries.map((ind,i) => `
-      <a href="industries/${ind.slug}.html" class="reveal group block" data-delay="${i*50}">
-        <div class="overflow-hidden rounded-2xl aspect-[4/5] bg-secondary/40 mb-4">
-          <img src="${ind.image}" alt="${ind.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerpolicy="no-referrer"/>
-        </div>
-        <h3 class="text-lg md:text-xl font-bold font-headline text-primary mb-1 leading-tight group-hover:text-accent transition-colors">${ind.title}</h3>
-        <p class="text-sm text-muted-foreground line-clamp-2 leading-relaxed">${ind.description}</p>
-      </a>`).join('');
+
+    const featured = D.industries[0];
+    const rest = D.industries.slice(1);
+
+    // Editorial hero: centered headline, no jump-to-index pills
+    const heroBlock = `
+<section class="relative bg-background pt-16 md:pt-24 pb-12 md:pb-16 overflow-hidden">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="max-w-4xl reveal">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="block h-px w-10 bg-accent"></span>
+        <span class="text-[11px] font-semibold uppercase tracking-[0.32em] text-muted-foreground">Industries</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-headline text-primary leading-[0.98] tracking-tight">
+        Capital that knows<br/>your <span class="text-accent">business model</span>.
+      </h1>
+      <p class="mt-7 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+        From construction crews to e-commerce shops, we structure funding around how your industry actually makes money.
+      </p>
+    </div>
+  </div>
+</section>`;
+
+    const featuredBlock = '';
+
+    // Editorial grid of ALL industries (no featured split)
+    const restCards = D.industries.map((ind,i) => {
+      const range = (ind.expectations[0] && ind.expectations[0][1]) || '';
+      return `
+        <a href="industries/${ind.slug}.html" class="reveal group flex flex-col bg-white border border-border/60 overflow-hidden hover:border-primary transition-all" data-delay="${i*60}">
+          <div class="relative aspect-[5/3] overflow-hidden bg-muted">
+            <img src="${ind.image}" alt="${ind.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" referrerpolicy="no-referrer"/>
+          </div>
+          <div class="p-6 md:p-7 flex-1 flex flex-col">
+            <h3 class="text-xl md:text-2xl font-bold font-headline text-primary leading-tight tracking-tight mb-2 group-hover:text-accent transition-colors">${ind.title}</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">${ind.description}</p>
+            <div class="flex items-end justify-between pt-4 border-t border-border/60">
+              <div>
+                <p class="text-[9px] font-semibold uppercase tracking-[0.32em] text-muted-foreground mb-1">Typical</p>
+                <p class="text-sm font-bold text-primary">${range}</p>
+              </div>
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-primary group-hover:text-accent group-hover:gap-2 transition-all">
+                Details
+                <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>`;
+    }).join('');
+
+    const restBlock = `
+<section class="pb-24 md:pb-32 bg-background">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${restCards}</div>
+  </div>
+</section>`;
+
     document.getElementById('page-content').innerHTML =
-      pageHero({eyebrow:'Industries', title:'Industry-specific funding that actually fits', subtitle:'From construction crews to e-commerce shops, we know how each industry makes money, and we structure capital around it.'}) +
-      `<section class="py-16 md:py-24 bg-background"><div class="container mx-auto px-4 md:px-6"><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-10">${cards}</div></div></section>` +
+      heroBlock + featuredBlock + restBlock +
       genericCTA('Don\u2019t see your industry? We fund nearly every sector.');
   };
 
@@ -97,72 +215,116 @@
   window.LendiagoRenderPartners = function(){
     document.title = 'Partner Program, Lendiago';
     const benefits = [
-      ['Lucrative Commissions','Earn industry-leading commissions on every funded deal you refer. Our transparent structure ensures you\u2019re rewarded handsomely for every successful client.'],
-      ['Dedicated Support','Get a dedicated partner manager and access to our streamlined platform, marketing materials, and underwriting team to help you succeed.'],
-      ['Expand Your Offerings','Provide your clients with access to our comprehensive suite of funding solutions, strengthening your relationships and adding immense value to your services.']
+      ['Earn commission on every funded deal','You send the client, we close the deal, you get paid. No funding background or licensing needed.'],
+      ['You stay the trusted advisor','Your client comes through your relationship. We handle underwriting, lender shopping, and closing in the background.'],
+      ['Add funding to what you already sell','If you sell insurance, file taxes, list properties, or advise small businesses, you already talk to owners who need capital. Now you have somewhere to send them.']
     ];
     const audiences = [
-      ['Brokers & ISOs','Tap into our wide network of lenders.'],
-      ['CPAs & Accountants','Help your clients grow with smart capital.'],
-      ['Real Estate Pros','Offer financing solutions to your clients.'],
-      ['Business Consultants','Add a powerful new service to your toolkit.']
+      ['Insurance agents','Your clients run businesses. They need working capital.'],
+      ['SBA & loan officers','Refer the deals that fall outside your box.'],
+      ['CPAs & accountants','Help clients fund growth, not just file taxes.'],
+      ['Real estate & consultants','Add financing alongside what you already offer.']
     ];
-    document.getElementById('page-content').innerHTML =
-      pageHero({eyebrow:'Become a Partner', title:'Grow Your Business by Helping Others Grow Theirs', subtitle:'Join the Lendiago Partner Program and provide your clients with industry-leading funding solutions while earning competitive commissions.'}) + `
-<section class="py-24 md:py-32">
+    document.getElementById('page-content').innerHTML = `
+<section class="relative w-full bg-background overflow-hidden pt-16 pb-8 md:pt-24 md:pb-12">
+  <div class="absolute inset-0 opacity-[0.04] pointer-events-none -z-10">
+    <div class="absolute inset-0" style="background-image: linear-gradient(to right, #808080 1px, transparent 1px), linear-gradient(to bottom, #808080 1px, transparent 1px); background-size:40px 40px;"></div>
+  </div>
   <div class="container mx-auto px-4 md:px-6">
-    <div class="text-center mb-16 reveal">
-      <h2 class="text-3xl md:text-5xl font-bold font-headline text-primary mb-4">Why Partner With Lendiago?</h2>
-      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">A simple, powerful program designed to reward your referrals.</p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-x-12 gap-y-12">
-      ${benefits.map(([t,d],i)=>`
-        <div class="reveal pt-6 border-t border-border/60" data-delay="${i*100}">
-          <h3 class="text-xl md:text-2xl font-bold font-headline text-primary mb-3 leading-tight">${t}</h3>
-          <p class="text-muted-foreground leading-relaxed">${d}</p>
-        </div>`).join('')}
-    </div>
-  </div>
-</section>
-<section class="py-24 bg-muted/30">
-  <div class="container mx-auto px-4 md:px-6">
-    <div class="text-center mb-16 reveal">
-      <h2 class="text-3xl md:text-5xl font-bold font-headline text-primary mb-4">Built for Trusted Advisors</h2>
-      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">Our program is designed for professionals who serve business owners.</p>
-    </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
-      ${audiences.map(([t,d],i)=>`
-        <div class="reveal pt-6 border-t border-border/60" data-delay="${i*80}">
-          <h4 class="font-headline text-lg font-bold text-primary mb-2 leading-tight">${t}</h4>
-          <p class="text-muted-foreground text-sm leading-relaxed">${d}</p>
-        </div>`).join('')}
-    </div>
-  </div>
-</section>
-<section class="relative py-24 md:py-32 bg-primary text-primary-foreground overflow-hidden">
-  <div aria-hidden="true" class="pointer-events-none absolute inset-0">
-    <svg class="absolute -top-20 -left-20 w-[500px] h-[500px] text-accent/15" viewBox="0 0 200 200" fill="currentColor"><circle cx="60" cy="60" r="40"/></svg>
-    <svg class="absolute -bottom-32 -right-20 w-[600px] h-[600px] text-accent/10" viewBox="0 0 200 200" fill="currentColor"><path d="M150 20 L180 80 L120 80 Z"/><rect x="60" y="100" width="80" height="80" rx="12"/></svg>
-  </div>
-  <div class="container mx-auto px-4 md:px-6 relative">
-    <div class="grid md:grid-cols-12 gap-12 items-center max-w-5xl reveal">
-      <div class="md:col-span-7">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="block h-px w-10 bg-accent"></span>
-          <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent">Become a partner</span>
-        </div>
-        <h2 class="text-3xl md:text-5xl font-bold font-headline leading-[1.05] tracking-tight">Ready to <span class="text-accent italic">partner?</span></h2>
-        <p class="text-lg text-primary-foreground/75 leading-relaxed mt-6 max-w-xl">Tell us about your business and we'll be in touch within 24 hours to set up your partner account.</p>
+    <div class="max-w-3xl reveal">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="block h-px w-12 bg-accent"></span>
+        <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Partner Program</span>
       </div>
-      <div class="md:col-span-5 md:flex md:justify-end">
-        <a href="contact.html" class="inline-flex items-center justify-center bg-accent text-primary hover:bg-accent/90 rounded-full px-10 py-5 text-base font-bold w-full md:w-auto">Apply to Partner Program
-          <svg class="ml-3 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-primary leading-[1.02] font-headline mb-6">Partner with Lendiago. <span class="text-accent italic">Grow with us.</span></h1>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">Refer business owners to a team that actually finds them capital. Tell us about your business below and Sam will be in touch to set up your partner account.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-20">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="grid lg:grid-cols-12 gap-12 md:gap-16 items-start">
+      <div class="lg:col-span-5 space-y-12 reveal-l">
+        <div class="space-y-8">
+          <div class="flex items-center gap-4">
+            <span class="block h-px w-10 bg-accent"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Why partner</span>
+          </div>
+          ${benefits.map(([t,d],i)=>`
+            <div class="border-t border-border/60 pt-6">
+              <h3 class="text-xl md:text-2xl font-bold font-headline text-primary mb-3 leading-tight">${t}</h3>
+              <p class="text-muted-foreground leading-relaxed">${d}</p>
+            </div>`).join('')}
+        </div>
+        <div class="border-t border-border/60 pt-8">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="block h-px w-10 bg-accent"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Who it's for</span>
+          </div>
+          <div class="grid grid-cols-2 gap-x-6 gap-y-5">
+            ${audiences.map(([t,d])=>`
+              <div>
+                <h4 class="font-headline text-base font-bold text-primary mb-1 leading-tight">${t}</h4>
+                <p class="text-muted-foreground text-sm leading-relaxed">${d}</p>
+              </div>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-7 reveal-r">
+        <form action="mailto:sam@lendiago.com" method="post" enctype="text/plain" class="rounded-[1.5rem] border border-border/60 bg-white overflow-hidden shadow-sm">
+          <div class="bg-primary text-primary-foreground px-8 md:px-10 py-7 flex items-center justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <span class="block h-px w-8 bg-accent"></span>
+                <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent">Apply to partner</span>
+              </div>
+              <h3 class="font-headline text-xl md:text-2xl font-bold leading-tight">Tell us about your business</h3>
+            </div>
+            <span class="hidden sm:inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/20">
+              <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="m4 6 8 7 8-7"/></svg>
+            </span>
+          </div>
+          <div class="p-8 md:p-10 space-y-7">
+            <div class="grid md:grid-cols-2 gap-x-6 gap-y-6">
+              ${[['Full name','name','Jane Smith','text'],['Company','company','Smith CPA Group','text'],['Email','email','jane@smithcpa.com','email'],['Phone','phone','(555) 555-1234','tel']].map(([l,n,ph,t])=>`
+                <div class="space-y-2">
+                  <label class="text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground block">${l} <span class="text-accent">*</span></label>
+                  <input name="${n}" type="${t}" required placeholder="${ph}" class="w-full bg-background border border-border/60 rounded-xl px-4 py-3.5 text-base text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"/>
+                </div>`).join('')}
+            </div>
+            <div class="space-y-2">
+              <label class="text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground block">Type of business <span class="text-accent">*</span></label>
+              <div class="relative">
+                <select name="partner_type" required class="w-full bg-background border border-border/60 rounded-xl px-4 py-3.5 text-base text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 appearance-none pr-12">
+                  <option value="" disabled selected>Select one</option>
+                  <option>Insurance agent</option>
+                  <option>SBA / loan officer</option>
+                  <option>CPA / accountant</option>
+                  <option>Real estate professional</option>
+                  <option>Business consultant</option>
+                  <option>Broker / ISO</option>
+                  <option>Other</option>
+                </select>
+                <svg class="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground block">Tell us more</label>
+              <textarea name="message" rows="5" placeholder="What industry you work in, the kind of clients you serve, and anything else we should know." class="w-full bg-background border border-border/60 rounded-xl px-4 py-3.5 text-base text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4 rounded-full transition-all hover:scale-[1.01]">Submit application
+              <svg class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 </section>`;
   };
+
+
 
   /* FAQ */
   window.LendiagoRenderFAQ = function(){
@@ -204,69 +366,44 @@
     document.title = 'Contact Us, Lendiago';
     document.getElementById('page-content').innerHTML =
       pageHero({eyebrow:'Get in Touch', title:'Let\u2019s talk about your business', subtitle:'Whether you have questions, need a custom solution, or are ready to apply, we\u2019re here to help.'}) + `
-<section class="py-16 md:py-24 bg-background">
+<section class="py-20 md:py-28">
   <div class="container mx-auto px-4 md:px-6 max-w-6xl">
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
-      <div class="lg:col-span-8 reveal-l">
-        <div class="flex items-center gap-4 mb-10">
-          <span class="block h-px w-10 bg-accent"></span>
-          <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Send us a message</span>
+    <div class="grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 reveal-l">
+        <div class="rounded-[2rem] border border-border/50 bg-white shadow-premium overflow-hidden">
+          <div class="bg-primary text-primary-foreground p-10">
+            <h2 class="text-3xl font-bold font-headline mb-2">Send Us a Message</h2>
+            <p class="text-primary-foreground/70">We typically respond within a few hours during business days.</p>
+          </div>
+          <form class="p-10 space-y-6" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent, we\\'ll be in touch'; this.querySelector('button').classList.add('bg-accent','text-primary');">
+            <div class="grid md:grid-cols-2 gap-6">
+              ${cField('Full Name','name','John Doe')}${cField('Email','email','john@company.com','email')}
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+              ${cField('Phone','phone','(555) 555-1234','tel')}${cField('Company','company','Acme Inc.')}
+            </div>
+            ${cField('Subject','subject','How can we help?')}
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-primary">Message</label>
+              <textarea class="w-full rounded-xl border border-border/60 bg-background px-4 py-3 min-h-[140px] focus:border-accent focus:outline-none" placeholder="Tell us a bit about your business..."></textarea>
+            </div>
+            <button class="w-full bg-primary text-primary-foreground hover:bg-accent rounded-full py-4 text-lg font-bold transition">Send Message</button>
+          </form>
         </div>
-        <form class="space-y-10" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent, we\\'ll be in touch'; this.querySelector('button').classList.add('bg-accent','text-primary');">
-          <div class="grid md:grid-cols-2 gap-x-8 gap-y-10">
-            ${field('Full Name','name','John Doe')}${field('Email','email','john@company.com','email')}
-          </div>
-          <div class="grid md:grid-cols-2 gap-x-8 gap-y-10">
-            ${field('Phone','phone','(555) 555-1234','tel')}${field('Company','company','Acme Inc.')}
-          </div>
-          ${field('Subject','subject','How can we help?')}
-          <div class="space-y-3">
-            <label class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Message</label>
-            <textarea class="w-full border-0 border-b border-border/60 bg-transparent py-3 min-h-[120px] focus:border-accent focus:outline-none text-primary text-base placeholder:text-muted-foreground/60" placeholder="Tell us a bit about your business..."></textarea>
-          </div>
-          <div class="pt-6">
-            <button class="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-accent hover:text-primary rounded-full px-12 py-5 text-base font-bold transition-all">
-              Send Message
-              <svg class="ml-3 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </button>
-          </div>
-        </form>
       </div>
-      <aside class="lg:col-span-4 reveal-r">
-        <div class="lg:sticky top-32 space-y-12">
-          <div>
-            <div class="flex items-center gap-4 mb-8">
-              <span class="block h-px w-10 bg-accent"></span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Reach us</span>
-            </div>
-            <div class="divide-y divide-border/60">
-              <a href="tel:5164399364" class="flex items-center justify-between py-4 group">
-                <span class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Phone</span>
-                <span class="font-bold text-primary group-hover:text-accent transition-colors">516-439-9364</span>
-              </a>
-              <a href="mailto:info@lendiago.com" class="flex items-center justify-between py-4 group">
-                <span class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Email</span>
-                <span class="font-bold text-primary group-hover:text-accent transition-colors">info@lendiago.com</span>
-              </a>
-              <div class="flex items-center justify-between py-4">
-                <span class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Office</span>
-                <span class="font-bold text-primary">Long Island, NY 11023</span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="flex items-center gap-4 mb-8">
-              <span class="block h-px w-10 bg-accent"></span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Hours</span>
-            </div>
-            <ul class="divide-y divide-border/60">
-              <li class="flex justify-between py-4 text-primary"><span class="text-muted-foreground">Mon to Fri</span><span class="font-bold">9am to 7pm ET</span></li>
-              <li class="flex justify-between py-4 text-primary"><span class="text-muted-foreground">Saturday</span><span class="font-bold">10am to 2pm ET</span></li>
-              <li class="flex justify-between py-4 text-primary"><span class="text-muted-foreground">Sunday</span><span class="font-bold">Closed</span></li>
-            </ul>
-          </div>
+      <div class="space-y-6 reveal-r">
+        ${contactCard('phone','Phone','516-439-9364','tel:5164399364')}
+        ${contactCard('mail','Email','info@lendiago.com','mailto:info@lendiago.com')}
+        ${contactCard('mappin','Office','Long Island, NY 11023','#')}
+        <div class="rounded-2xl bg-primary text-primary-foreground p-7 shadow-premium">
+          <h3 class="font-headline text-xl font-bold mb-3">Business Hours</h3>
+          <ul class="space-y-2 text-primary-foreground/80 text-sm">
+            <li class="flex justify-between"><span>Monday to Friday</span><span>9am to 7pm ET</span></li>
+            <li class="flex justify-between"><span>Saturday</span><span>10am to 2pm ET</span></li>
+            <li class="flex justify-between"><span>Sunday</span><span>Closed</span></li>
+          </ul>
         </div>
-      </aside>
+      </div>
     </div>
   </div>
 </section>`;
@@ -277,6 +414,7 @@
     document.title = 'Apply for Funding, Lendiago';
     const params = new URLSearchParams(location.search);
     const initial = D.products.find(p => p.slug === params.get('product'));
+    const formUrl = 'https://form.jotform.com/261271610738051';
     document.getElementById('page-content').innerHTML = `
 <section class="bg-background py-12 md:py-20 border-b border-border/60">
   <div class="container mx-auto px-4 md:px-6 max-w-6xl">
@@ -291,7 +429,7 @@
         <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Funding Application</span>
       </div>
       <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-headline text-primary leading-[1.02] tracking-tight mb-6">Apply for funding<span class="text-accent">.</span></h1>
-      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">Complete our streamlined application in less than 2 minutes. No impact on your credit score.</p>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">A short application, around two minutes. No impact on your credit score${initial ? `. Pre-filled for <span class="text-primary font-semibold">${initial.title}</span>` : ''}.</p>
     </div>
   </div>
 </section>
@@ -299,54 +437,62 @@
 <section class="bg-background py-16 md:py-24">
   <div class="container mx-auto px-4 md:px-6 max-w-6xl">
     <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
-      <div class="lg:col-span-8 reveal-l">
-        <div class="flex items-center gap-4 mb-10">
-          <span class="block h-px w-10 bg-accent"></span>
-          <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Business Information</span>
+      <div class="lg:col-span-8 reveal-l space-y-12">
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <span class="block h-px w-10 bg-accent"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Step 1</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold font-headline text-primary leading-[1.1] mb-4">Open the application</h2>
+          <p class="text-lg text-muted-foreground leading-relaxed max-w-xl mb-8">The form opens in a new tab so you can keep this page handy. Most applicants finish in under two minutes.</p>
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="${formUrl}" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-accent hover:text-primary rounded-full px-10 py-5 text-base font-bold transition-all">
+              Start application
+              <svg class="ml-3 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+            </a>
+            <a href="${formUrl}" class="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors underline underline-offset-4 decoration-border">or open in this tab</a>
+          </div>
         </div>
-        <form id="applyForm" class="space-y-10">
-          <div class="grid md:grid-cols-2 gap-x-8 gap-y-10">
-            ${field('First Name *','firstName','John','text',true)}${field('Last Name *','lastName','Doe','text',true)}
+
+        <div class="border-t border-border/60 pt-12">
+          <div class="flex items-center gap-4 mb-8">
+            <span class="block h-px w-10 bg-accent"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">What you'll need</span>
           </div>
-          <div class="grid md:grid-cols-2 gap-x-8 gap-y-10">
-            ${field('Email Address *','email','john@company.com','email',true)}${field('Phone Number *','phone','(555) 000-0000','tel',true)}
+          <dl class="grid sm:grid-cols-2 gap-x-10 gap-y-6">
+            ${[
+              ['Basic business info','Legal name, DBA, time in business.'],
+              ['Owner contact','Name, email, and phone number.'],
+              ['Monthly revenue','A rough average is fine for a quote.'],
+              ['Funding goal','How much you need and what for.']
+            ].map(([t,d])=>`
+              <div class="border-t border-border/60 pt-5">
+                <dt class="font-bold font-headline text-primary text-lg mb-1">${t}</dt>
+                <dd class="text-sm text-muted-foreground leading-relaxed">${d}</dd>
+              </div>`).join('')}
+          </dl>
+        </div>
+
+        <div class="border-t border-border/60 pt-12">
+          <div class="flex items-center gap-4 mb-8">
+            <span class="block h-px w-10 bg-accent"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">After you apply</span>
           </div>
-          <div class="grid md:grid-cols-2 gap-x-8 gap-y-10">
-            ${field('Company Name','company','Acme Inc.')}
-            <div class="space-y-3">
-              <label class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Financing Solution *</label>
-              <select class="w-full h-12 border-0 border-b border-border/60 bg-transparent focus:border-accent focus:outline-none text-primary text-base">
-                <option value="">Select a solution</option>
-                ${D.products.map(p => `<option ${initial && initial.slug===p.slug?'selected':''}>${p.title}</option>`).join('')}
-              </select>
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-x-8 gap-y-10">
-            <div class="space-y-3">
-              <label class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Desired Funding Amount</label>
-              <select class="w-full h-12 border-0 border-b border-border/60 bg-transparent focus:border-accent focus:outline-none text-primary text-base">
-                <option value="">Select amount range</option><option>Under $50,000</option><option>$50,000 - $250,000</option><option>$250,000 - $1,000,000</option><option>Over $1,000,000</option>
-              </select>
-            </div>
-            <div class="space-y-3">
-              <label class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Approximate Credit Score</label>
-              <select class="w-full h-12 border-0 border-b border-border/60 bg-transparent focus:border-accent focus:outline-none text-primary text-base">
-                <option value="">Select credit range</option><option>720+</option><option>680 - 719</option><option>620 - 679</option><option>Under 620</option>
-              </select>
-            </div>
-          </div>
-          <div class="space-y-3">
-            <label class="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Additional Details</label>
-            <textarea class="w-full border-0 border-b border-border/60 bg-transparent py-3 min-h-[100px] focus:border-accent focus:outline-none text-primary text-base placeholder:text-muted-foreground/60" placeholder="Tell us about your business goals..."></textarea>
-          </div>
-          <div class="pt-6">
-            <button class="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-accent hover:text-primary rounded-full px-12 py-5 text-base font-bold transition-all">
-              Submit Application
-              <svg class="ml-3 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </button>
-            <p class="text-xs text-muted-foreground/70 mt-6 max-w-md leading-relaxed">By submitting, you agree to our Terms of Service and Privacy Policy. Your information is secure and encrypted.</p>
-          </div>
-        </form>
+          <ol class="space-y-5">
+            ${[
+              ['A funding advisor reviews your file.','Usually within a few business hours.'],
+              ['We match offers to your goals.','Multiple structures, side by side.'],
+              ['You choose the option that fits.','Funds typically arrive in 24 to 48 hours.']
+            ].map(([t,d],i)=>`
+              <li class="flex gap-5">
+                <span class="shrink-0 w-8 h-8 rounded-full bg-accent/15 text-primary font-mono text-sm font-bold flex items-center justify-center">${i+1}</span>
+                <div>
+                  <p class="font-bold text-primary">${t}</p>
+                  <p class="text-sm text-muted-foreground">${d}</p>
+                </div>
+              </li>`).join('')}
+          </ol>
+        </div>
       </div>
 
       <aside class="lg:col-span-4 reveal-r">
@@ -387,22 +533,6 @@
     </div>
   </div>
 </section>`;
-
-    const form = document.getElementById('applyForm');
-    if(form){
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        form.innerHTML = `
-          <div class="text-center py-20 space-y-6">
-            <div class="bg-accent/10 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8">
-              <svg class="h-12 w-12 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            </div>
-            <h2 class="text-4xl font-bold font-headline text-primary">Thank You!</h2>
-            <p class="text-xl text-muted-foreground max-w-md mx-auto">Your application has been received. A funding specialist will review your details and contact you within 24 hours.</p>
-            <a href="index.html" class="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-accent rounded-full px-8 py-3 font-bold mt-4">Return to Home</a>
-          </div>`;
-      });
-    }
   };
 
   /* About */
@@ -554,7 +684,7 @@
     <div class="container mx-auto px-4 md:px-6 max-w-3xl text-center reveal">
       <h2 class="text-3xl md:text-4xl font-bold font-headline text-primary mb-4">Ready to Apply What You've Learned?</h2>
       <p class="text-lg text-muted-foreground mb-8">Get matched with the right funding option in minutes, with no impact on your credit.</p>
-      <a href="../apply.html" class="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-accent rounded-full px-10 py-4 text-lg font-bold transition">Apply Now</a>
+      <a href="https://form.jotform.com/261271610738051" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-accent rounded-full px-10 py-4 text-lg font-bold transition">Apply Now</a>
     </div>
   </section>
 </article>`;
@@ -614,6 +744,12 @@
       <input name="${name}" type="${type}" placeholder="${ph}" ${req?'required':''} class="w-full h-12 border-0 border-b border-border/60 bg-transparent focus:border-accent focus:outline-none text-primary text-base placeholder:text-muted-foreground/60"/>
     </div>`;
   }
+  function cField(label, name, ph, type='text', req=false){
+    return `<div class="space-y-2">
+      <label class="text-sm font-bold text-primary">${label}</label>
+      <input name="${name}" type="${type}" placeholder="${ph}" ${req?'required':''} class="w-full rounded-xl border border-border/60 bg-background px-4 py-3 focus:border-accent focus:outline-none text-primary placeholder:text-muted-foreground/60"/>
+    </div>`;
+  }
   function contactCard(icon, title, value, href){
     return `<a href="${href}" class="flex items-center gap-5 p-6 rounded-2xl bg-white border border-border/50 shadow-sm hover:shadow-premium transition group">
       <div class="h-12 w-12 rounded-2xl bg-primary/10 text-primary group-hover:bg-accent group-hover:text-primary flex items-center justify-center transition-colors">${miniIcon(icon)}</div>
@@ -646,7 +782,7 @@
         <p class="text-lg text-primary-foreground/75 leading-relaxed max-w-xl">Apply once. We'll match you to the best option in minutes, with no impact to your credit.</p>
       </div>
       <div class="md:col-span-5 flex flex-col gap-3 md:items-end">
-        <a href="apply.html" class="inline-flex items-center justify-center bg-accent text-primary hover:bg-accent/90 rounded-full px-10 py-5 text-base font-bold w-full md:w-auto">Apply Now
+        <a href="https://form.jotform.com/261271610738051" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-accent text-primary hover:bg-accent/90 rounded-full px-10 py-5 text-base font-bold w-full md:w-auto">Apply Now
           <svg class="ml-3 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
         <a href="contact.html" class="inline-flex items-center justify-center border border-white/20 text-white hover:bg-white/10 rounded-full px-10 py-5 text-base font-bold w-full md:w-auto transition-colors">Talk to Us</a>
