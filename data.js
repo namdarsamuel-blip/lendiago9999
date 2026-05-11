@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contact | Lendiago</title>
+<title>Lendiago</title>
 <link rel="icon" href="assets/Favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,15 +30,15 @@
   }
 </script>
 <link rel="stylesheet" href="shared.css" />
-<script>window.LENDIAGO_NAV = { current: 'contact' };</script>
+<script>window.LENDIAGO_NAV = { current: 'solutions' };</script>
 </head>
 <body class="font-sans antialiased">
 <div id="site-chrome-top"></div>
 <main id="page-content"></main>
 <div id="site-chrome-bottom"></div>
 <script src="data.js"></script>
-<script src="page-template-flat.js"></script>
-<script>LendiagoRenderContact();</script>
+<script src="page-template.js"></script>
+<script>LendiagoRenderProduct('business-term-loan');</script>
 <script src="shared.js"></script>
 </body>
 </html>

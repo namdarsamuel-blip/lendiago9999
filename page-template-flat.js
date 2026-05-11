@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Licenses | Lendiago</title>
-<link rel="icon" href="assets/Favicon.svg" type="image/svg+xml" />
+<title>Lendiago</title>
+<link rel="icon" href="../assets/Favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -29,16 +29,16 @@
     }
   }
 </script>
-<link rel="stylesheet" href="shared.css" />
-<script>window.LENDIAGO_NAV = { current: '' };</script>
+<link rel="stylesheet" href="../shared.css" />
+<script>window.LENDIAGO_NAV = { current: 'industries' };</script>
 </head>
 <body class="font-sans antialiased">
 <div id="site-chrome-top"></div>
 <main id="page-content"></main>
 <div id="site-chrome-bottom"></div>
-<script src="data.js"></script>
-<script src="page-template-flat.js"></script>
-<script>LendiagoRenderLegal('licenses');</script>
-<script src="shared.js"></script>
+<script src="../data.js"></script>
+<script src="../page-template.js"></script>
+<script>LendiagoRenderIndustry('retail');</script>
+<script src="../shared.js"></script>
 </body>
 </html>
