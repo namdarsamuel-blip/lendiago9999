@@ -139,23 +139,29 @@
   }
   const iTrack = document.getElementById('industriesTrack');
   if(iTrack){
-    iTrack.innerHTML = industries.map(i=>`
+    const industriesData = (window.LENDIAGO_DATA && window.LENDIAGO_DATA.industries) || industries;
+    iTrack.innerHTML = industriesData.map(i=>{
+      const img = i.image || i.img;
+      const title = i.title;
+      const slug = i.slug;
+      return `
       <div class="carousel-item shrink-0">
         <div class="h-full">
-          <a href="industries/${i.slug}.html" class="block group">
+          <a href="industries/${slug}.html" class="block group">
             <div class="overflow-hidden relative rounded-2xl shadow-premium border-0 transition-all duration-500 group-hover:shadow-2xl">
               <div class="p-0 aspect-[3/4] flex items-center justify-center bg-muted relative">
-                <img src="${i.img}" alt="${i.title}" class="absolute inset-0 object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" />
+                <img src="${img}" alt="${title}" class="absolute inset-0 object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" style="object-position:${i.imagePos||'center top'}" referrerpolicy="no-referrer" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                 <div class="absolute bottom-6 left-6 right-6">
-                  <h3 class="text-xl font-bold text-white font-headline tracking-wide group-hover:text-accent transition-colors">${i.title}</h3>
+                  <h3 class="text-xl font-bold text-white font-headline tracking-wide group-hover:text-accent transition-colors">${title}</h3>
                   <div class="ind-underline h-1 w-0 bg-accent mt-2 transition-all duration-300 group-hover:w-full"></div>
                 </div>
               </div>
             </div>
           </a>
         </div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
   }
   const flex = document.getElementById('flexPills');
   if(flex && window.LENDIAGO_DATA){
